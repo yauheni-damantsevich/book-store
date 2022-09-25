@@ -29,13 +29,13 @@ export const Header = () => {
           </SearchButton>
         </SearchWrapper>
         <Wrapper>
-          <Button>
+          <Button to="/favorites">
             <ButtonIcon src={heartButtonIcon} alt="Heart" />
           </Button>
-          <Button>
+          <Button to="/cart">
             <ButtonIcon src={shoppingBagButtonIcon} alt="Shopping Bag" />
           </Button>
-          <Button>
+          <Button to="/profile">
             <ButtonIcon src={profileButtonIcon} alt="Profile" />
           </Button>
         </Wrapper>

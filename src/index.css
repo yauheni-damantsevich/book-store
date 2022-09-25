@@ -1,3 +1,132 @@
+/* CSS Reset */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Rating */
+
 /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
 .rating-group {
   display: inline-flex;
@@ -28,20 +157,55 @@
 
 /* set default star color */
 .rating__icon--star {
-  color: orange;
+  color: #313037;
 }
 
 /* if any input is checked, make its following siblings grey */
 .rating__input:checked ~ .rating__label .rating__icon--star {
-  color: #ddd;
+  color: #e7e7e7;
 }
 
 /* make all stars orange on rating group hover */
 .rating-group:hover .rating__label .rating__icon--star {
-  color: orange;
+  color: #313037;
 }
 
 /* make hovered input's following siblings grey on hover */
 .rating__input:hover ~ .rating__label .rating__icon--star {
-  color: #ddd;
+  color: #e7e7e7;
+}
+
+/* Details */
+
+details {
+  cursor: pointer;
+  margin: 0 0 60px 0;
+}
+
+details :after {
+  transition-duration: 0.3s;
+  z-index: 1;
+  content: url("./assets/chevron.svg");
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 16px;
+  height: 16px;
+}
+
+details[open] :after {
+  transition-duration: 0.3ss;
+  z-index: 1;
+  content: url("./assets/chevron.svg");
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 16px;
+  height: 16px;
+  transform: rotate(-180deg);
+}
+
+summary {
+  position: relative;
+  list-style: none;
 }

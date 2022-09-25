@@ -8,6 +8,12 @@ export const Container = styled.div`
 
 export const H1 = styled.h1`
   margin: 72px 0 48px 0;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 64px;
+  color: #313037;
 `;
 
 export const MainWrapper = styled.div`

@@ -25,6 +25,7 @@ export const Card = (props: ResponseBooks) => {
             max-width: 226px;
             padding: 26px 62px;
             background-color: ${backgroundColor};
+            margin: 0 0 20px 0;
           `}
           alt="Book Cover"
         />

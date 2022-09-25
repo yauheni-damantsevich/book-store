@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   margin: auto;
@@ -8,6 +9,7 @@ export const Container = styled.div`
 export const MainWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
+  margin: 24px 0;
 `;
 
 export const SearchWrapper = styled.div`
@@ -31,7 +33,7 @@ export const SearchButton = styled.button`
   border: none;
 `;
 
-export const Button = styled.button`
+export const Button = styled(Link)`
   background-color: transparent;
   border: none;
   padding: 16px;
