@@ -54,12 +54,18 @@ import { cartCountActions } from "../../store/cartCount.slice";
 
 export const Book = () => {
   const { BookId } = useParams();
-  const state = useSelector((state: any) => state.cards.cardData.books);
+  const state = useSelector((state: any) => state);
+
   function getBook(state: any, id: string | undefined) {
-    let book = state.find((element: any) =>
-      element.url.indexOf(id) !== -1 ? element : null
+    let searchedBook = state.search.searchData.results.books.find(
+      (element: any) => (element.url.indexOf(id) !== -1 ? element : null)
     );
-    return book;
+    if (!searchedBook) {
+      let book = state.cards.cardData.books.find((element: any) =>
+        element.url.indexOf(id) !== -1 ? element : null
+      );
+      return book;
+    } else return searchedBook;
   }
   const currentBook = getBook(state, BookId);
 
@@ -74,7 +80,7 @@ export const Book = () => {
 
   const ref = useRef<null | HTMLDivElement>(null);
 
-  const similarData = randomBooks(state);
+  const similarData = randomBooks(state.cards.cardData.books);
 
   const dispatch = useAppDispatch();
 

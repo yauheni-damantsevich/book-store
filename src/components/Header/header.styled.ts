@@ -27,10 +27,12 @@ export const Search = styled.input`
   flex: 1;
 `;
 
-export const SearchButton = styled.button`
+export const SearchButton = styled(Link)`
   transform: translate(-100%);
   background-color: transparent;
   border: none;
+  margin: auto;
+  padding: 16px;
 `;
 
 export const Button = styled(Link)`

@@ -1,13 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import { cardReducer } from "./cards.slice";
-// import { cartReducer } from "./cart.slice";
 import { cartCountReducer } from "./cartCount.slice";
+import { searchReducer } from "./search.slice";
 
 export const rootStore = configureStore({
   reducer: {
     cards: cardReducer,
     cartCount: cartCountReducer,
+    search: searchReducer,
   },
 });
 
