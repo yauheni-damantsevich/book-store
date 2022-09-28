@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import instance from "./searchBooks";
+import instance from "../api/searchBooks";
 
 const useFetch = () => {
   const [data, setData] = useState({

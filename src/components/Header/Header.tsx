@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React from "react";
 
 import {
   Container,
@@ -10,6 +10,7 @@ import {
   Button,
   ButtonIcon,
   Wrapper,
+  LogoLink,
 } from "./header.styled";
 
 import bookstore from "../../assets/Bookstore.svg";
@@ -17,7 +18,7 @@ import searchButtonIcon from "../../assets/Search.svg";
 import heartButtonIcon from "../../assets/Heart.svg";
 import shoppingBagButtonIcon from "../../assets/Shopping-bag.svg";
 import profileButtonIcon from "../../assets/User.svg";
-import useFetch from "../../api/useFetch";
+import useFetch from "../../hooks/useFetch";
 import { useAppDispatch } from "../../store/rootStore";
 import { searchActions } from "../../store/search.slice";
 
@@ -29,7 +30,9 @@ export const Header = () => {
   return (
     <Container>
       <MainWrapper>
-        <Logo src={bookstore} />
+        <LogoLink to="/">
+          <Logo src={bookstore} />
+        </LogoLink>
         <SearchWrapper>
           <Search
             type="search"
@@ -55,7 +58,7 @@ export const Header = () => {
           <Button to="/cart">
             <ButtonIcon src={shoppingBagButtonIcon} alt="Shopping Bag" />
           </Button>
-          <Button to="/profile">
+          <Button to="/account">
             <ButtonIcon src={profileButtonIcon} alt="Profile" />
           </Button>
         </Wrapper>

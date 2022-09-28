@@ -49,7 +49,6 @@ import { SubscribeFrame } from "../../components/SubscribeFrame/SubscribeFrame";
 import { randomBooks } from "./randomBooks";
 import { Card } from "../../components/Card/Card";
 import { useAppDispatch } from "../../store/rootStore";
-// import { cartActions } from "../../store/cart.slice";
 import { cartCountActions } from "../../store/cartCount.slice";
 
 export const Book = () => {

@@ -1,6 +1,10 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  width: 1200px;
+  margin: 77px auto;
+  padding: 0 16px 0 16px;
+`;
 
 export const CartWrapper = styled.div`
   margin: 0 0 48px 0;

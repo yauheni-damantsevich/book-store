@@ -17,9 +17,12 @@ export const SearchWrapper = styled.div`
   display: flex;
 `;
 
+export const LogoLink = styled(Link)`
+  flex-grow: 1;
+`;
+
 export const Logo = styled.img`
   max-height: 28px;
-  flex-grow: 1;
   align-self: center;
 `;
 
