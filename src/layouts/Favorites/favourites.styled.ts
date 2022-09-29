@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Container = styled.div`
   width: 1200px;
-  margin: 77px auto;
+  margin: 72px auto;
   padding: 0 16px 0 16px;
 `;
 
@@ -18,7 +18,7 @@ export const H1 = styled.h1`
   font-size: 56px;
   line-height: 64px;
   text-transform: uppercase;
-  margin: 0 0 48px 0;
+  margin: 32px 0 48px 0;
 `;
 
 export const FavoritesWrapper = styled.div`

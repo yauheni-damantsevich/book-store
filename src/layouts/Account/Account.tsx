@@ -26,10 +26,8 @@ import { useNavigate } from "react-router-dom";
 
 export const Account = () => {
   const user = useSelector((state: any) => state.user.userData);
-  // user.displayName
-  const [username, setUsername] = useState("");
-  // user.email
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState(user.displayName);
+  const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

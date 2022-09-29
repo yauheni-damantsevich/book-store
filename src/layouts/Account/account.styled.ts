@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   width: 1200px;
-  margin: 77px auto;
+  margin: 72px auto;
   padding: 0 16px 0 16px;
 `;
 

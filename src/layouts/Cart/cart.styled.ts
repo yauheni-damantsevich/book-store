@@ -22,7 +22,7 @@ export const H1 = styled.h1`
   font-size: 56px;
   line-height: 64px;
   text-transform: uppercase;
-  margin: 0 0 48px 0;
+  margin: 32px 0 48px 0;
 `;
 
 export const Item = styled.div`

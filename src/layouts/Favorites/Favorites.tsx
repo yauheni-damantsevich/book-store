@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { IFavorites } from "../../types/favorites.types";
 import redHeart from "../../assets/redHeart.svg";
 import {
+  Back,
   Book,
   BookWrapper,
   Container,
@@ -18,13 +19,19 @@ import { randomizedColor } from "../../components/randomizedColor/randomizedColo
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../store/rootStore";
 import { favoritesActions } from "../../store/favorites.slice";
+import { useNavigate } from "react-router-dom";
+import backIcon from "../../assets/Back.svg";
 
 export const Favorites = () => {
   const cachedValue = useMemo(() => randomizedColor(), []);
   const data = useSelector((state: any) => state.favorites.favoritesData);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   return (
     <Container>
+      <Back onClick={() => navigate(-1)}>
+        <img src={backIcon} alt="Back" />
+      </Back>
       <H1>Favorites</H1>
       <FavoritesWrapper>
         {data
