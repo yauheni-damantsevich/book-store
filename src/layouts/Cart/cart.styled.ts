@@ -10,6 +10,11 @@ export const CartWrapper = styled.div`
   margin: 0 0 48px 0;
 `;
 
+export const Back = styled.button`
+  background-color: transparent;
+  border: none;
+`;
+
 export const H1 = styled.h1`
   font-family: "Bebas Neue";
   font-style: normal;

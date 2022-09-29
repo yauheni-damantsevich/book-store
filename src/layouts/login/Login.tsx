@@ -26,8 +26,7 @@ import {
   setPersistence,
   browserSessionPersistence,
 } from "firebase/auth";
-import { Navigate } from "react-router-dom";
-import firebase from "firebase/compat/app";
+
 import { userActions } from "../../store/user.silce";
 import { useAppDispatch } from "../../store/rootStore";
 import { useSelector } from "react-redux";

@@ -9,6 +9,7 @@ import { MainPage } from "./layouts/Main/Main";
 import { Account } from "./layouts/Account/Account";
 import { Login } from "./layouts/login/Login";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
+import { Favorites } from "./layouts/Favorites/Favorites";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
         <Route path="/books/book/:BookId" element={<Book />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/search" element={<Search />} />
         <Route path="/search/books/book/:BookId" element={<Book />} />

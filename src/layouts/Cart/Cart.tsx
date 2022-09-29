@@ -7,6 +7,7 @@ import { randomizedColor } from "../../components/randomizedColor/randomizedColo
 import {
   Container,
   CartWrapper,
+  Back,
   H1,
   Item,
   ItemWrapper,
@@ -28,11 +29,13 @@ import {
   CheckOutButton,
 } from "./cart.styled";
 
+import backIcon from "../../assets/Back.svg";
 import iconMinus from "../../assets/IconMinus.svg";
 import iconPlus from "../../assets/IconPlus.svg";
 import { cartCountActions } from "../../store/cartCount.slice";
 import { useAppDispatch } from "../../store/rootStore";
 import { ICartCount } from "../../types/cartCount.types";
+import { useNavigate } from "react-router-dom";
 
 export const Cart = () => {
   const cachedValue = useMemo(() => randomizedColor(), []);
@@ -62,8 +65,14 @@ export const Cart = () => {
     const result = vat() + Number(sum());
     return Math.floor(result);
   };
+
+  const navigate = useNavigate();
+
   return (
     <Container>
+      <Back onClick={() => navigate(-1)}>
+        <img src={backIcon} alt="Back" />
+      </Back>
       <H1>Your cart</H1>
       <CartWrapper>
         {data

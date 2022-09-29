@@ -21,6 +21,12 @@ export const cartCountSlice = createSlice({
       } else {
         state.cartCount.push(action.payload);
       }
+      for (let index = 0; index < state.cartCount.length; index++) {
+        const element = state.cartCount[index];
+        if (element.count === 0) {
+          state.cartCount.splice(index, 1);
+        }
+      }
       state.cartCount.sort(function (a: ICartCount, b: ICartCount) {
         if (a.title < b.title) {
           return -1;

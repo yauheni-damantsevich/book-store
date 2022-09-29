@@ -8,6 +8,7 @@ import { combineReducers } from "redux";
 import { actionTypes, firebaseReducer } from "react-redux-firebase";
 import { firestoreReducer } from "redux-firestore";
 import { userReducer } from "./user.silce";
+import { favoritesReducer } from "./favorites.slice";
 
 export const rootReducer = combineReducers({
   firebase: firebaseReducer,
@@ -20,6 +21,7 @@ export const rootStore = configureStore({
     cartCount: cartCountReducer,
     search: searchReducer,
     user: userReducer,
+    favorites: favoritesReducer,
     firebase: firebaseReducer,
     firestore: firestoreReducer,
   },

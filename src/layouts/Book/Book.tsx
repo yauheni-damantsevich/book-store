@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 
 import React, { useMemo, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   Container,
   Back,
@@ -50,6 +50,7 @@ import { randomBooks } from "./randomBooks";
 import { Card } from "../../components/Card/Card";
 import { useAppDispatch } from "../../store/rootStore";
 import { cartCountActions } from "../../store/cartCount.slice";
+import { favoritesActions } from "../../store/favorites.slice";
 
 export const Book = () => {
   const { BookId } = useParams();
@@ -94,7 +95,6 @@ export const Book = () => {
   const dispatch = useAppDispatch();
 
   const handleClickAddToCart = () =>
-    // dispatch(cartActions.addToCart(currentBook));
     dispatch(
       cartCountActions.cartCount({
         title: currentBook.title,
@@ -107,9 +107,29 @@ export const Book = () => {
         count: 1,
       })
     );
+
+  const handleClickAddToFavorites = () =>
+    dispatch(
+      favoritesActions.favorites({
+        title: currentBook.title,
+        subtitle: currentBook.subtitle,
+        isbn13: currentBook.isbn13,
+        price: currentBook.price,
+        image: currentBook.image,
+        id: currentBook.id,
+        url: currentBook.url,
+        count: 1,
+        isFavorite: isActive ? true : false,
+      })
+    );
+
+  const navigate = useNavigate();
+
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <Container>
-      <Back to={"/"}>
+      <Back onClick={() => navigate(-1)}>
         <img src={backIcon} alt="Back" />
       </Back>
       <H1>{currentBook.title}</H1>
@@ -125,7 +145,15 @@ export const Book = () => {
             `}
             alt="Book Cover"
           />
-          <Like>
+          <Like
+            onClick={() => {
+              setIsActive(!isActive);
+              handleClickAddToFavorites();
+            }}
+            css={css`
+              background-color: ${isActive ? "#313037" : "#A8A8A8"};
+            `}
+          >
             <LikeIcon src={likeIcon} alt="Like" />
           </Like>
         </LeftWrapper>

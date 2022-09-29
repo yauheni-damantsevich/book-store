@@ -60,7 +60,7 @@ export const Account = () => {
 
   return (
     <Container>
-      <Back to="/">
+      <Back onClick={() => navigate(-1)}>
         <img src={backIcon} alt="Back" />
       </Back>
       <H1>Account</H1>

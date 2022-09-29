@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   width: 1200px;
@@ -7,7 +6,10 @@ export const Container = styled.div`
   padding: 0 16px 0 16px;
 `;
 
-export const Back = styled(Link)``;
+export const Back = styled.button`
+  background-color: transparent;
+  border: none;
+`;
 
 export const H1 = styled.h1`
   font-family: "Bebas Neue";
@@ -49,6 +51,7 @@ export const Like = styled.button`
   right: 0;
   background-color: #313037;
   border: none;
+  cursor: pointer;
 `;
 
 export const LikeIcon = styled.img`

@@ -7,7 +7,10 @@ export const Container = styled.div`
   padding: 0 16px 0 16px;
 `;
 
-export const Back = styled(Link)``;
+export const Back = styled.button`
+  background-color: transparent;
+  border: none;
+`;
 
 export const H1 = styled.h1`
   font-family: "Bebas Neue";
