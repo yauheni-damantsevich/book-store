@@ -13,6 +13,11 @@ import { getFirestore } from "firebase/firestore";
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 import { createFirestoreInstance } from "redux-firestore";
 
+import "./assets/fonts/BebasNeue-Regular.woff2";
+import "./assets/fonts/dinpro.woff2";
+import "./assets/fonts/HeliosC-Bold.woff2";
+import "./assets/fonts/HeliosC.woff2";
+
 export const firebaseConfig = {
   apiKey: "AIzaSyCFKJ5XKYWhANYWe4QaKnMEaTaKAxIdUMY",
   authDomain: "book-store-26901.firebaseapp.com",

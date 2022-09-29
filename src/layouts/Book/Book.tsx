@@ -46,7 +46,7 @@ import facebookIcon from "../../assets/Facebook.svg";
 import twitterIcon from "../../assets/Twitter.svg";
 import moreIcon from "../../assets/More.svg";
 import { SubscribeFrame } from "../../components/SubscribeFrame/SubscribeFrame";
-import { randomBooks } from "./randomBooks";
+import { randomBooks } from "../../components/randomBooks/randomBooks";
 import { Card } from "../../components/Card/Card";
 import { useAppDispatch } from "../../store/rootStore";
 import { cartCountActions } from "../../store/cartCount.slice";
