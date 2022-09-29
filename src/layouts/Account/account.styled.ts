@@ -66,6 +66,23 @@ export const Input = styled.input`
   padding: 12px;
 `;
 
+export const BottomWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const Logout = styled.button`
+  width: 256px;
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  color: #313037;
+`;
+
 export const SubmitWrapper = styled.div`
   display: flex;
   gap: 32px;
@@ -82,6 +99,7 @@ export const Submit = styled.button`
   font-size: 24px;
   line-height: 24px;
   color: #ffffff;
+  border: none;
 `;
 
 export const Cancel = styled.button`

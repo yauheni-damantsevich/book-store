@@ -56,15 +56,25 @@ export const Book = () => {
   const state = useSelector((state: any) => state);
 
   function getBook(state: any, id: string | undefined) {
-    let searchedBook = state.search.searchData.results.books.find(
-      (element: any) => (element.url.indexOf(id) !== -1 ? element : null)
-    );
-    if (!searchedBook) {
+    if (
+      state.cards.cardData.books.length > 0 &&
+      state.search.searchData.length === 0
+    ) {
       let book = state.cards.cardData.books.find((element: any) =>
         element.url.indexOf(id) !== -1 ? element : null
       );
       return book;
-    } else return searchedBook;
+    } else if (state.search.searchData.results.books.length > 0) {
+      let searchedBook = state.search.searchData.results.books.find(
+        (element: any) => (element.url.indexOf(id) !== -1 ? element : null)
+      );
+      if (!searchedBook) {
+        let result = state.cards.cardData.books.find((element: any) =>
+          element.url.indexOf(id) !== -1 ? element : null
+        );
+        return result;
+      } else return searchedBook;
+    }
   }
   const currentBook = getBook(state, BookId);
 

@@ -13,24 +13,58 @@ import {
   Submit,
   Cancel,
   SectionWrapper,
+  BottomWrapper,
+  Logout,
 } from "./account.styled";
 import backIcon from "../../assets/Back.svg";
 import { useAppDispatch } from "../../store/rootStore";
+import { onAuthStateChanged, updatePassword } from "firebase/auth";
+import { getAuth, updateProfile, updateEmail } from "firebase/auth";
+import { useSelector } from "react-redux";
+import { userActions } from "../../store/user.silce";
+import { useNavigate } from "react-router-dom";
 
 export const Account = () => {
+  const user = useSelector((state: any) => state.user.userData);
+  // user.displayName
   const [username, setUsername] = useState("");
+  // user.email
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const auth = getAuth();
+  const submitChanges = () => {
+    onAuthStateChanged(auth, (user: any) => {
+      if (user) {
+        updateProfile(user, { displayName: username });
+        updateEmail(user, email);
+        updatePassword(user, password);
+      }
+    });
+  };
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    submitChanges();
+  };
+
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const logout = () => {
+    dispatch(userActions.logout());
+    auth.signOut();
+    navigate("/");
+  };
 
   return (
     <Container>
-      <Back to="/"></Back>
-      <img src={backIcon} alt="Back" />
+      <Back to="/">
+        <img src={backIcon} alt="Back" />
+      </Back>
       <H1>Account</H1>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <SectionWrapper>
           <H2>Profile</H2>
           <MainWrapper>
@@ -51,7 +85,9 @@ export const Account = () => {
                 type="email"
                 id="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
             </Wrapper>
           </MainWrapper>
@@ -93,11 +129,15 @@ export const Account = () => {
             </Wrapper>
           </MainWrapper>
         </SectionWrapper>
-
-        <SubmitWrapper>
-          <Submit onClick={() => dispatch()}>Save Changes</Submit>
-          <Cancel>Cancel</Cancel>
-        </SubmitWrapper>
+        <BottomWrapper>
+          <Logout type="button" onClick={() => logout()}>
+            Logout
+          </Logout>
+          <SubmitWrapper>
+            <Submit type="submit">Save Changes</Submit>
+            <Cancel type="button">Cancel</Cancel>
+          </SubmitWrapper>
+        </BottomWrapper>
       </Form>
     </Container>
   );

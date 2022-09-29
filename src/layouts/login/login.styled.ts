@@ -104,6 +104,8 @@ export const ForgotPasswordButton = styled(Link)`
   margin: 0 0 16px 0;
 `;
 
+export const ErrorMassage = styled.p``;
+
 export const SubmitButton = styled.button`
   width: 100%;
   padding: 16px 0;
