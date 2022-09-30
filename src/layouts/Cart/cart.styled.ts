@@ -166,4 +166,10 @@ export const CheckOutButton = styled.button`
   text-transform: uppercase;
   border: none;
   color: #ffffff;
+  &:hover {
+    background: #5b5a62;
+  }
+  &:active {
+    background: #5b5a62;
+  }
 `;

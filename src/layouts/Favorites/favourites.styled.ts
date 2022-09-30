@@ -89,4 +89,33 @@ export const RatingWrapper = styled.div`
 export const HeartButton = styled.button`
   background-color: transparent;
   border: none;
+  &:hover {
+    background: #5b5a62;
+  }
+  &:active {
+    background: #5b5a62;
+  }
+`;
+
+export const SimilarBooksWrapper = styled.div``;
+
+export const H3 = styled.h3`
+  margin: 0 0 48px 0;
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 60px;
+  color: #313037;
+`;
+
+export const SimilarityWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+`;
+
+export const CardWrapper = styled.div`
+  max-width: 352px;
+  flex: 1;
 `;

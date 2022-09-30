@@ -119,6 +119,12 @@ export const SubmitButton = styled.button`
   line-height: 24px;
   color: #ffffff;
   margin: 24px 0 8px 0;
+  &:hover {
+    background: #5b5a62;
+  }
+  &:active {
+    background: #5b5a62;
+  }
 `;
 
 export const SignUp = styled.div`

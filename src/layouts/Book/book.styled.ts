@@ -119,6 +119,13 @@ export const AddToCardButton = styled.button`
   background-color: #313037;
   border: none;
   margin: 0 0 40px 0;
+  cursor: pointer;
+  &:hover {
+    background: #5b5a62;
+  }
+  &:active {
+    background: #5b5a62;
+  }
 `;
 
 export const AddToCardTitle = styled.p`
@@ -226,6 +233,7 @@ export const SocialMediaButton = styled.button`
   background-color: transparent;
   border: none;
   margin: 0 0 72px 0;
+  cursor: pointer;
 `;
 
 export const SimilarBooksWrapper = styled.div``;

@@ -265,7 +265,13 @@ export const Book = () => {
             </Properties>
           </CardInfoWrapper>
           <details>
-            <summary>More Details</summary>
+            <summary
+              css={css`
+                cursor: pointer;
+              `}
+            >
+              More Details
+            </summary>
             <MoreDetailsWrapper>
               <Properties>
                 <Key>Key</Key>

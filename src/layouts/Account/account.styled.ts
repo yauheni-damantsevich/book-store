@@ -84,6 +84,7 @@ export const Logout = styled.button`
   font-size: 24px;
   line-height: 24px;
   color: #313037;
+  cursor: pointer;
 `;
 
 export const SubmitWrapper = styled.div`
@@ -103,6 +104,13 @@ export const Submit = styled.button`
   line-height: 24px;
   color: #ffffff;
   border: none;
+  cursor: pointer;
+  &:hover {
+    background: #5b5a62;
+  }
+  &:active {
+    background: #5b5a62;
+  }
 `;
 
 export const Cancel = styled.button`
@@ -115,4 +123,5 @@ export const Cancel = styled.button`
   font-size: 24px;
   line-height: 24px;
   color: #313037;
+  cursor: pointer;
 `;

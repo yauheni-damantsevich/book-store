@@ -1,3 +1,6 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+
 import React, { useMemo } from "react";
 import { IFavorites } from "../../types/favorites.types";
 import redHeart from "../../assets/redHeart.svg";
@@ -5,14 +8,18 @@ import {
   Back,
   Book,
   BookWrapper,
+  CardWrapper,
   Container,
   Description,
   FavoritesWrapper,
   H1,
   H2,
+  H3,
   HeartButton,
   Price,
   RatingWrapper,
+  SimilarBooksWrapper,
+  SimilarityWrapper,
   Wrapper,
 } from "./favourites.styled";
 import { randomizedColor } from "../../components/randomizedColor/randomizedColor";
@@ -21,12 +28,18 @@ import { useAppDispatch } from "../../store/rootStore";
 import { favoritesActions } from "../../store/favorites.slice";
 import { useNavigate } from "react-router-dom";
 import backIcon from "../../assets/Back.svg";
+import { randomBooks } from "../../components/randomBooks/randomBooks";
+import { Card } from "../../components/Card/Card";
 
 export const Favorites = () => {
   const cachedValue = useMemo(() => randomizedColor(), []);
   const data = useSelector((state: any) => state.favorites.favoritesData);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const state = useSelector((state: any) => state);
+  const similarData = randomBooks(state.cards.cardData.books);
+
   return (
     <Container>
       <Back onClick={() => navigate(-1)}>
@@ -38,7 +51,15 @@ export const Favorites = () => {
           ? data.map((data: IFavorites, key: string) => {
               return (
                 <Book key={key}>
-                  <img src={data.image} alt="Book" />
+                  <img
+                    src={data.image}
+                    alt="Book"
+                    css={css`
+                      max-height: 100px;
+                      padding: 28px 72px;
+                      background-color: ${cachedValue};
+                    `}
+                  />
                   <BookWrapper>
                     <H2>{data.title}</H2>
                     <Description>by Lentin Joseph, Apress 2018</Description>
@@ -155,6 +176,27 @@ export const Favorites = () => {
             })
           : null}
       </FavoritesWrapper>
+      <SimilarBooksWrapper>
+        <H3>Popular Books</H3>
+        <SimilarityWrapper>
+          {similarData.length > 0 &&
+            similarData.map((data, key) => {
+              return (
+                <CardWrapper key={key}>
+                  <Card
+                    title={data.title}
+                    image={data.image}
+                    subtitle={data.subtitle}
+                    isbn13={data.isbn13}
+                    price={data.price}
+                    url={data.url}
+                    id={data.url.replace(/\D/g, "")}
+                  />
+                </CardWrapper>
+              );
+            })}
+        </SimilarityWrapper>
+      </SimilarBooksWrapper>
     </Container>
   );
 };
