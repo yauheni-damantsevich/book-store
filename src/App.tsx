@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import { Header } from "./components/Header/Header";
 import { Book } from "./layouts/Book/Book";
@@ -16,8 +16,9 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<MainPage />}></Route>
-        <Route path="/books/book/:BookId" element={<Book />} />
+        <Route path="/" element={<Navigate to="/1" />} />
+        <Route path="/:page" element={<MainPage />}></Route>
+        <Route path="/book/:BookId" element={<Book />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/search" element={<Search />} />

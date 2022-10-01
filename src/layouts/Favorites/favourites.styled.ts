@@ -89,12 +89,8 @@ export const RatingWrapper = styled.div`
 export const HeartButton = styled.button`
   background-color: transparent;
   border: none;
-  &:hover {
-    background: #5b5a62;
-  }
-  &:active {
-    background: #5b5a62;
-  }
+  max-width: 20px;
+  max-height: 20px;
 `;
 
 export const SimilarBooksWrapper = styled.div``;

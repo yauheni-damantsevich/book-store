@@ -54,7 +54,10 @@ import { favoritesActions } from "../../store/favorites.slice";
 
 export const Book = () => {
   const { BookId } = useParams();
+  console.log(BookId);
+
   const state = useSelector((state: any) => state);
+  console.log(state);
 
   function getBook(state: any, id: string | undefined) {
     if (
@@ -125,7 +128,7 @@ export const Book = () => {
 
   const navigate = useNavigate();
 
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
 
   return (
     <Container>
@@ -152,6 +155,12 @@ export const Book = () => {
             }}
             css={css`
               background-color: ${isActive ? "#313037" : "#A8A8A8"};
+              &:active {
+                background-color: #5b5a62;
+              }
+              &:hover {
+                background-color: #5b5a62;
+              }
             `}
           >
             <LikeIcon src={likeIcon} alt="Like" />

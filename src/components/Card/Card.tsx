@@ -18,7 +18,7 @@ export const Card = (props: ResponseBooks) => {
   const backgroundColor = randomizedColor();
   return (
     <MainWrapper>
-      <ImgLink to={`books/book/${props.id}`}>
+      <ImgLink to={`/book/${props.id}`}>
         <img
           src={props.image}
           css={css`
@@ -31,7 +31,7 @@ export const Card = (props: ResponseBooks) => {
         />
       </ImgLink>
 
-      <H2 to={`books/book/${props.id}`}>{props.title}</H2>
+      <H2 to={`/book/${props.id}`}>{props.title}</H2>
       <ShortDescription>by Lentin Joseph, Apress 2018</ShortDescription>
       <BottomWrapper>
         <Price>{props.price}</Price>

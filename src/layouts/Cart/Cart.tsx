@@ -27,11 +27,13 @@ import {
   TotalKey,
   TotalValue,
   CheckOutButton,
+  Delete,
 } from "./cart.styled";
-
 import backIcon from "../../assets/Back.svg";
 import iconMinus from "../../assets/IconMinus.svg";
 import iconPlus from "../../assets/IconPlus.svg";
+import deleteIcon from "../../assets/deleteIcon.svg";
+
 import { cartCountActions } from "../../store/cartCount.slice";
 import { useAppDispatch } from "../../store/rootStore";
 import { ICartCount } from "../../types/cartCount.types";
@@ -140,6 +142,26 @@ export const Cart = () => {
                         : "$" +
                           Number(data.price.replace(/[^0-9\.-]+/g, "")) * 0}
                     </Price>
+                    <Delete>
+                      <img
+                        src={deleteIcon}
+                        alt="Delete"
+                        onClick={() => {
+                          dispatch(
+                            cartCountActions.cartCount({
+                              title: data.title,
+                              subtitle: data.subtitle,
+                              isbn13: data.isbn13,
+                              price: data.price,
+                              image: data.image,
+                              id: data.id,
+                              url: data.url,
+                              count: 0,
+                            })
+                          );
+                        }}
+                      />
+                    </Delete>
                   </PriceWrapper>
                 </Item>
               );

@@ -18,9 +18,19 @@ export const H1 = styled.h1`
 `;
 
 export const MainWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
+  margin: 0 0 120px 0;
+  &:after {
+    position: absolute;
+    top: calc(100% + 72px);
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #e7e7e7;
+  }
 `;
 
 export const CardWrapper = styled.div`

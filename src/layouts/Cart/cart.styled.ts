@@ -71,6 +71,7 @@ export const PriceWrapper = styled.div`
   flex-grow: 3;
   display: flex;
   justify-content: center;
+  gap: 128px;
 `;
 
 export const Price = styled.p`
@@ -80,6 +81,16 @@ export const Price = styled.p`
   font-size: 40px;
   line-height: 60px;
   color: #313037;
+  display: flex;
+  align-self: center;
+`;
+
+export const Delete = styled.button`
+  max-width: 24px;
+  max-height: 24px;
+  background-color: transparent;
+  border: none;
+  align-self: center;
 `;
 
 export const CountWrapper = styled.div`
