@@ -18,14 +18,19 @@ export const Card = (props: ResponseBooks) => {
   const backgroundColor = randomizedColor();
   return (
     <MainWrapper>
-      <ImgLink to={`/book/${props.id}`}>
+      <ImgLink
+        to={`/book/${props.id}`}
+        css={css`
+          display: flex;
+          justify-content: center;
+          background-color: ${backgroundColor};
+          margin: 0 0 20px 0;
+        `}
+      >
         <img
           src={props.image}
           css={css`
-            max-width: 226px;
-            padding: 26px 62px;
-            background-color: ${backgroundColor};
-            margin: 0 0 20px 0;
+            align-self: center;
           `}
           alt="Book Cover"
         />

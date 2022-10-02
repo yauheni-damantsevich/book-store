@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { randomizedColor } from "../../components/randomizedColor/randomizedColor";
 import {
@@ -38,6 +38,7 @@ import { cartCountActions } from "../../store/cartCount.slice";
 import { useAppDispatch } from "../../store/rootStore";
 import { ICartCount } from "../../types/cartCount.types";
 import { useNavigate } from "react-router-dom";
+import { CartItemCompact } from "../../components/CartItemCompact/CartItemCompact";
 
 export const Cart = () => {
   const cachedValue = useMemo(() => randomizedColor(), []);
@@ -69,6 +70,12 @@ export const Cart = () => {
 
   const navigate = useNavigate();
 
+  const [width, setWidth] = React.useState(window.innerWidth);
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, []);
+  const breakpoint = 576;
+
   return (
     <Container>
       <Back onClick={() => navigate(-1)}>
@@ -78,7 +85,18 @@ export const Cart = () => {
       <CartWrapper>
         {data
           ? data.map((data: ICartCount, key: string) => {
-              return (
+              return width < breakpoint ? (
+                <CartItemCompact
+                  key={key}
+                  title={data.title}
+                  isbn13={data.isbn13}
+                  price={data.price}
+                  image={data.image}
+                  id={data.id}
+                  url={data.url}
+                  count={data.count}
+                />
+              ) : (
                 <Item key={key}>
                   <img
                     src={data.image}
@@ -98,7 +116,6 @@ export const Cart = () => {
                           dispatch(
                             cartCountActions.cartCount({
                               title: data.title,
-                              subtitle: data.subtitle,
                               isbn13: data.isbn13,
                               price: data.price,
                               image: data.image,
@@ -117,7 +134,6 @@ export const Cart = () => {
                           dispatch(
                             cartCountActions.cartCount({
                               title: data.title,
-                              subtitle: data.subtitle,
                               isbn13: data.isbn13,
                               price: data.price,
                               image: data.image,
@@ -149,7 +165,6 @@ export const Cart = () => {
                           dispatch(
                             cartCountActions.cartCount({
                               title: data.title,
-                              subtitle: data.subtitle,
                               isbn13: data.isbn13,
                               price: data.price,
                               image: data.image,

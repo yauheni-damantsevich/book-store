@@ -1,36 +1,12 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
-  max-width: 1200px;
-  margin: 72px auto;
-  padding: 0 16px 0 16px;
-`;
-
-export const Back = styled.button`
-  background-color: transparent;
-  border: none;
-`;
-
-export const H1 = styled.h1`
-  font-family: "Bebas Neue";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 56px;
-  line-height: 64px;
-  text-transform: uppercase;
-  margin: 32px 0 48px 0;
-`;
-
-export const FavoritesWrapper = styled.div`
-  margin: 0 0 48px 0;
-`;
-
 export const Book = styled.div`
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   gap: 32px;
   justify-content: space-between;
-  margin: 0 0 98px 0;
+  margin: 0 auto 98px auto;
   &:after {
     position: absolute;
     content: "";
@@ -50,8 +26,7 @@ export const BookWrapper = styled.div`
 `;
 
 export const ImgWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  position: relative;
 `;
 
 export const H2 = styled.h2`
@@ -60,6 +35,7 @@ export const H2 = styled.h2`
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
+
   color: #313037;
 `;
 
@@ -92,32 +68,15 @@ export const RatingWrapper = styled.div`
 `;
 
 export const HeartButton = styled.button`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  top: 0;
+  right: 0;
   background-color: transparent;
   border: none;
-  max-width: 20px;
-  max-height: 20px;
-`;
-
-export const SimilarBooksWrapper = styled.div``;
-
-export const H3 = styled.h3`
-  margin: 0 0 48px 0;
-  font-family: "Bebas Neue";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 60px;
-  color: #313037;
-`;
-
-export const SimilarityWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-`;
-
-export const CardWrapper = styled.div`
-  margin: 0 auto;
-  max-width: 352px;
-  flex: 1;
+  align-self: center;
+  background-color: #313037;
 `;

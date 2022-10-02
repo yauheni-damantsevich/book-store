@@ -1,37 +1,10 @@
 import styled from "@emotion/styled";
-import facepaint from "facepaint";
 
-const breakpoints = [576, 768, 992, 1200];
-const mq = facepaint(breakpoints.map((bp) => `@media (min-width: ${bp}px)`));
-
-export const Container = styled.div`
-  max-width: 1200px;
-  margin: 77px auto;
-  padding: 0 16px 0 16px;
-`;
-
-export const CartWrapper = styled.div`
-  margin: 0 0 48px 0;
-`;
-
-export const Back = styled.button`
-  background-color: transparent;
-  border: none;
-`;
-
-export const H1 = styled.h1`
-  font-family: "Bebas Neue";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 56px;
-  line-height: 64px;
-  text-transform: uppercase;
-  margin: 32px 0 48px 0;
-`;
-
-export const Item = styled.div`
+export const ItemCompactWrapper = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   gap: 32px;
   justify-content: space-between;
   margin: 0 0 98px 0;
@@ -52,6 +25,12 @@ export const ItemWrapper = styled.div`
   gap: 8px;
 `;
 
+export const ImgWrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+`;
+
 export const H2 = styled.h2`
   font-family: "Bebas Neue";
   font-style: normal;
@@ -70,30 +49,40 @@ export const Description = styled.p`
   color: #a8a8a8;
 `;
 
+export const BottomWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const PriceWrapper = styled.div`
   flex-grow: 3;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 128px;
 `;
 
 export const Price = styled.p`
+  align-self: center;
   font-family: "Bebas Neue";
   font-style: normal;
   font-weight: 700;
-  font-size: 40px;
-  line-height: 60px;
+  font-size: 28px;
+  line-height: 40px;
   color: #313037;
-  display: flex;
-  align-self: center;
 `;
 
 export const Delete = styled.button`
-  max-width: 24px;
-  max-height: 24px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  top: 0;
+  right: 0;
   background-color: transparent;
   border: none;
   align-self: center;
+  background-color: #313037;
 `;
 
 export const CountWrapper = styled.div`
@@ -120,8 +109,8 @@ export const Count = styled.p`
 `;
 
 export const CheckOutWrapper = styled.div`
-  ${mq({ margin: ["0 auto", "0 0 0 auto", "0 0 0 auto", "0 0 0 auto"] })}
   max-width: 256px;
+  margin: 0 0 0 auto;
   display: flex;
   flex-direction: column;
 `;

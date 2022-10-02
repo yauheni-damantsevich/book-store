@@ -1,7 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import { Header } from "./components/Header/Header";
 import { Book } from "./layouts/Book/Book";
 import { Search } from "./layouts/Search/Search";
 import { Cart } from "./layouts/Cart/Cart";
@@ -12,11 +11,12 @@ import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import { Favorites } from "./layouts/Favorites/Favorites";
 import { Footer } from "./components/Footer/Footer";
 import { ResetPassword } from "./layouts/ResetPassword/ResetPassword";
+import { HeaderSwitcher } from "./components/HeaderSwitcher/HeaderSwitcher";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <HeaderSwitcher />
       <Routes>
         <Route path="/" element={<Navigate to="/1" />} />
         <Route path="/:page" element={<MainPage />}></Route>

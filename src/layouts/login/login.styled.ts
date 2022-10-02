@@ -1,15 +1,19 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
+import facepaint from "facepaint";
+
+const breakpoints = [576, 1200];
+const mq = facepaint(breakpoints.map((bp) => `@media (min-width: ${bp}px)`));
 
 export const Container = styled.div`
-  width: 1200px;
+  max-width: 1200px;
   margin: 77px auto;
   padding: 0 16px 0 16px;
 `;
 
 export const MainWrapper = styled.div`
   margin: 0 auto;
-  max-width: 50%;
+  ${mq({ maxWidth: ["80%", "50%"] })}
   display: flex;
   flex-direction: column;
   border: 1px solid #e7e7e7;

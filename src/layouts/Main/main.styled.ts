@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  width: 1200px;
+  max-width: 1200px;
   margin: 72px auto;
   padding: 0 16px 0 16px;
 `;
@@ -35,5 +35,6 @@ export const MainWrapper = styled.div`
 
 export const CardWrapper = styled.div`
   max-width: 352px;
+  margin: 0 auto;
   flex: 1;
 `;

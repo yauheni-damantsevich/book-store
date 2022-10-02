@@ -16,8 +16,6 @@ import {
   Wrapper,
   Price,
   RatingWrapper,
-  CardInfoWrapper,
-  Properties,
   Key,
   Value,
   MoreDetailsWrapper,
@@ -38,6 +36,8 @@ import {
   SimilarBooksWrapper,
   SimilarityWrapper,
   CardWrapper,
+  ListWrapper,
+  ListItem,
 } from "./book.styled";
 import { randomizedColor } from "../../components/randomizedColor/randomizedColor";
 import backIcon from "../../assets/Back.svg";
@@ -135,14 +135,16 @@ export const Book = () => {
       </Back>
       <H1>{currentBook.title}</H1>
       <MainWrapper>
-        <LeftWrapper>
+        <LeftWrapper
+          css={css`
+            flex-grow: 3;
+            background-color: ${cachedValue};
+          `}
+        >
           <img
             src={currentBook.image}
             css={css`
-              flex-grow: 2;
-              padding: 82px 170px;
-              background-color: ${cachedValue};
-              margin: 0 0 32px 0;
+              align-self: center;
             `}
             alt="Book Cover"
           />
@@ -253,24 +255,24 @@ export const Book = () => {
               </div>
             </RatingWrapper>
           </Wrapper>
-          <CardInfoWrapper>
-            <Properties>
+          <ListWrapper>
+            <ListItem>
               <Key>Author</Key>
               <Value>Lentin Joseph, Aleena Johny</Value>
-            </Properties>
-            <Properties>
+            </ListItem>
+            <ListItem>
               <Key>Publisher</Key>
               <Value>Apress, 2022</Value>
-            </Properties>
-            <Properties>
+            </ListItem>
+            <ListItem>
               <Key>Language</Key>
               <Value>English</Value>
-            </Properties>
-            <Properties>
+            </ListItem>
+            <ListItem>
               <Key>Format</Key>
               <Value>Paper book / ebook (PDF)</Value>
-            </Properties>
-          </CardInfoWrapper>
+            </ListItem>
+          </ListWrapper>
           <details>
             <summary
               css={css`
@@ -280,10 +282,10 @@ export const Book = () => {
               More Details
             </summary>
             <MoreDetailsWrapper>
-              <Properties>
+              <ListItem>
                 <Key>Key</Key>
                 <Value>Value</Value>
-              </Properties>
+              </ListItem>
             </MoreDetailsWrapper>
           </details>
           <AddToCardButton onClick={handleClickAddToCart}>

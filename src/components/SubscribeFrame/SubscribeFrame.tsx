@@ -7,6 +7,7 @@ import {
   Input,
   SubscribeDescription,
   SubscribeWrapper,
+  Title,
 } from "./subscribeFrame.styled";
 
 export const SubscribeFrame = () => {
@@ -20,7 +21,9 @@ export const SubscribeFrame = () => {
       <Form>
         <FormWrapper>
           <Input type="email" placeholder="Your Email" />
-          <Button type="submit">Subscribe</Button>
+          <Button type="submit">
+            <Title>Subscribe</Title>
+          </Button>
         </FormWrapper>
       </Form>
     </SubscribeWrapper>

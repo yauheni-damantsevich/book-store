@@ -9,8 +9,9 @@ import {
   SearchButton,
   Button,
   ButtonIcon,
-  Wrapper,
+  ListWrapper,
   LogoLink,
+  ListItem,
 } from "./header.styled";
 
 import bookstore from "../../assets/Bookstore.svg";
@@ -21,12 +22,11 @@ import profileButtonIcon from "../../assets/User.svg";
 import useFetch from "../../hooks/useFetch";
 import { useAppDispatch } from "../../store/rootStore";
 import { searchActions } from "../../store/search.slice";
-import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const { data, setData } = useFetch();
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+
   return (
     <Container>
       <MainWrapper>
@@ -51,17 +51,23 @@ export const Header = () => {
             <ButtonIcon src={searchButtonIcon} alt="Search" />
           </SearchButton>
         </SearchWrapper>
-        <Wrapper>
-          <Button to="/favorites">
-            <ButtonIcon src={heartButtonIcon} alt="Heart" />
-          </Button>
-          <Button to="/cart">
-            <ButtonIcon src={shoppingBagButtonIcon} alt="Shopping Bag" />
-          </Button>
-          <Button to="/account">
-            <ButtonIcon src={profileButtonIcon} alt="Profile" />
-          </Button>
-        </Wrapper>
+        <ListWrapper>
+          <ListItem>
+            <Button to="/favorites">
+              <ButtonIcon src={heartButtonIcon} alt="Heart" />
+            </Button>
+          </ListItem>
+          <ListItem>
+            <Button to="/cart">
+              <ButtonIcon src={shoppingBagButtonIcon} alt="Shopping Bag" />
+            </Button>
+          </ListItem>
+          <ListItem>
+            <Button to="/account">
+              <ButtonIcon src={profileButtonIcon} alt="Profile" />
+            </Button>
+          </ListItem>
+        </ListWrapper>
       </MainWrapper>
     </Container>
   );

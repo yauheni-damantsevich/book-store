@@ -1,8 +1,12 @@
 import styled from "@emotion/styled";
+import facepaint from "facepaint";
+
+const breakpoints = [576, 768, 992, 1200];
+const mq = facepaint(breakpoints.map((bp) => `@media (min-width: ${bp}px)`));
 
 export const Container = styled.div`
-  width: 1200px;
-  margin: 77px auto;
+  max-width: 1200px;
+  margin: 72px auto;
   padding: 0 16px 0 16px;
 `;
 
@@ -21,15 +25,23 @@ export const H1 = styled.h1`
 `;
 
 export const MainWrapper = styled.div`
+  ${mq({ flexWrap: ["wrap", "wrap", "wrap", "nowrap"] })}
   display: flex;
-  gap: 128px;
+  justify-content: space-between;
+  margin: 0 0 48px 0;
 `;
 
 export const LeftWrapper = styled.div`
   position: relative;
+  display: flex;
+  justify-content: center;
+  max-width: 544px;
+  margin: 0 16px 0 0;
 `;
 
 export const RightWrapper = styled.div`
+  max-width: 448px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -78,13 +90,13 @@ export const RatingWrapper = styled.div`
   align-self: center;
 `;
 
-export const CardInfoWrapper = styled.div`
+export const ListWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   margin: 0 0 16px 0;
 `;
 
-export const Properties = styled.div`
+export const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
   margin: 6px 0;
@@ -109,7 +121,7 @@ export const Value = styled.p`
   color: #313037;
 `;
 
-export const MoreDetailsWrapper = styled.div`
+export const MoreDetailsWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   margin: 16px 0;
@@ -156,16 +168,18 @@ export const TabWrapper = styled.div``;
 
 export const Navigation = styled.div`
   border-bottom: solid 1px #e7e7e7;
+  display: flex;
   margin: 0 0 48px 0;
 `;
 
 export const Description = styled.button`
+  align-self: center;
+  ${mq({ padding: ["40px 16px", "40px 16px", "40px 24px", "40px 24px"] })}
   font-family: "Helios";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  padding: 40px 24px;
   background-color: transparent;
   border: none;
   color: #a8a8a8;

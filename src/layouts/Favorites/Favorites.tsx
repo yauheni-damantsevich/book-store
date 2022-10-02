@@ -1,9 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { IFavorites } from "../../types/favorites.types";
-import redHeart from "../../assets/redHeart.svg";
 import {
   Back,
   Book,
@@ -16,6 +15,7 @@ import {
   H2,
   H3,
   HeartButton,
+  ImgWrapper,
   Price,
   RatingWrapper,
   SimilarBooksWrapper,
@@ -27,9 +27,13 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../store/rootStore";
 import { favoritesActions } from "../../store/favorites.slice";
 import { useNavigate } from "react-router-dom";
+
 import backIcon from "../../assets/Back.svg";
+import redHeart from "../../assets/redHeart.svg";
+
 import { randomBooks } from "../../components/randomBooks/randomBooks";
 import { Card } from "../../components/Card/Card";
+import { FavoriteItemCompact } from "../../components/FavoriteItemCompact/FavoriteItemCompact";
 
 export const Favorites = () => {
   const cachedValue = useMemo(() => randomizedColor(), []);
@@ -40,6 +44,12 @@ export const Favorites = () => {
   const state = useSelector((state: any) => state);
   const similarData = randomBooks(state.cards.cardData.books);
 
+  const [width, setWidth] = React.useState(window.innerWidth);
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, []);
+  const breakpoint = 576;
+
   return (
     <Container>
       <Back onClick={() => navigate(-1)}>
@@ -49,17 +59,37 @@ export const Favorites = () => {
       <FavoritesWrapper>
         {data
           ? data.map((data: IFavorites, key: string) => {
-              return (
+              return width < breakpoint ? (
+                <FavoriteItemCompact
+                  key={key}
+                  title={data.title}
+                  subtitle={data.subtitle}
+                  isbn13={data.isbn13}
+                  price={data.price}
+                  image={data.image}
+                  id={data.id}
+                  url={data.url}
+                  count={data.count}
+                  isFavorite={data.isFavorite}
+                />
+              ) : (
                 <Book key={key}>
-                  <img
-                    src={data.image}
-                    alt="Book"
+                  <ImgWrapper
                     css={css`
-                      max-height: 100px;
-                      padding: 28px 72px;
+                      display: flex;
+                      justify-content: center;
                       background-color: ${cachedValue};
                     `}
-                  />
+                  >
+                    <img
+                      src={data.image}
+                      alt="Book"
+                      css={css`
+                        align-self: center;
+                      `}
+                    />
+                  </ImgWrapper>
+
                   <BookWrapper>
                     <H2>{data.title}</H2>
                     <Description>by Lentin Joseph, Apress 2018</Description>

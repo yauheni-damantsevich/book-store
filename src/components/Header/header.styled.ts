@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
+  max-width: 1200px;
   margin: auto;
   padding: 0 16px 0 16px;
 `;
@@ -19,6 +20,7 @@ export const SearchWrapper = styled.div`
 
 export const LogoLink = styled(Link)`
   flex-grow: 1;
+  display: flex;
 `;
 
 export const Logo = styled.img`
@@ -38,6 +40,14 @@ export const SearchButton = styled(Link)`
   padding: 16px;
 `;
 
+export const ListWrapper = styled.ul`
+  display: flex;
+  flex-grow: 1;
+  justify-content: end;
+`;
+
+export const ListItem = styled.li``;
+
 export const Button = styled(Link)`
   background-color: transparent;
   border: none;
@@ -45,9 +55,3 @@ export const Button = styled(Link)`
 `;
 
 export const ButtonIcon = styled.img``;
-
-export const Wrapper = styled.div`
-  display: flex;
-  flex-grow: 1;
-  justify-content: end;
-`;

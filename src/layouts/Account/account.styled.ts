@@ -1,7 +1,11 @@
 import styled from "@emotion/styled";
+import facepaint from "facepaint";
+
+const breakpoints = [576, 768, 1200];
+const mq = facepaint(breakpoints.map((bp) => `@media (min-width: ${bp}px)`));
 
 export const Container = styled.div`
-  width: 1200px;
+  max-width: 1200px;
   margin: 72px auto;
   padding: 0 16px 0 16px;
 `;
@@ -43,6 +47,7 @@ export const H2 = styled.h2`
 export const MainWrapper = styled.div`
   width: 100%;
   display: flex;
+  ${mq({ flexWrap: ["wrap", "wrap", "no-wrap"] })};
   gap: 32px;
   margin: 0 0 16px 0;
 `;
@@ -74,6 +79,7 @@ export const BottomWrapper = styled.div`
 `;
 
 export const Logout = styled.button`
+  ${mq({ display: ["none"] })}
   width: 256px;
   background: #fff;
   border: 1px solid #e7e7e7;
@@ -87,9 +93,11 @@ export const Logout = styled.button`
 `;
 
 export const SubmitWrapper = styled.div`
+  ${mq({ flexDirection: ["column", "row", "row"] })};
   display: flex;
   gap: 32px;
-  justify-content: flex-end;
+  ${mq({ justifyContent: ["center", "flex-end", "flex-end"] })};
+  ${mq({ alignSelf: ["center"] })};
 `;
 
 export const Submit = styled.button`
