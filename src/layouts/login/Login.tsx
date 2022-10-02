@@ -24,7 +24,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   setPersistence,
-  browserSessionPersistence,
+  browserLocalPersistence,
 } from "firebase/auth";
 
 import { userActions } from "../../store/user.silce";
@@ -68,6 +68,8 @@ export const Login = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        setPersistence(auth, browserLocalPersistence);
+        navigate("/account");
       })
       .catch((error) => setErrorMessage(error.message));
   };
@@ -75,7 +77,8 @@ export const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        setPersistence(auth, browserSessionPersistence);
+        setPersistence(auth, browserLocalPersistence);
+        navigate("/account");
       })
       .catch((error) => setErrorMessage(error.message));
   };
