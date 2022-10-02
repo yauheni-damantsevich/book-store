@@ -15,7 +15,6 @@ import { useNavigate } from "react-router-dom";
 
 export const Pagination = ({
   currentPage,
-  //   setCurrentPage,
   totalCards,
   cardPerPage,
 }: IPagination) => {

@@ -48,7 +48,6 @@ export const Cart = () => {
   const sum = () => {
     let sumPrice = 0;
     const sumArray = [...data];
-    console.log(sumArray);
 
     for (let index = 0; index < sumArray.length; index++) {
       const element = sumArray[index];

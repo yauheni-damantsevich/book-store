@@ -4,7 +4,8 @@ import { Card } from "../../components/Card/Card";
 import { ResponseBooks } from "../../types/card.types";
 import { Container, CardWrapper, H1, MainWrapper, Back } from "./search.styled";
 import backIcon from "../../assets/Back.svg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { Pagination } from "../../components/Pagination/Pagination";
 
 export const Search = () => {
   const data = useSelector(
@@ -15,6 +16,17 @@ export const Search = () => {
   );
 
   const navigate = useNavigate();
+
+  let { page } = useParams();
+  let currentPage = Number(page) > 0 ? Number(page) : 1;
+  const cardPerPage = 15;
+  const totalCards = useSelector((state: any) => state.cards.cardData.total);
+  const indexOfLastCard =
+    Number(page) < 0 ? 1 * cardPerPage : Number(page) * cardPerPage;
+  const indexOfFirstCard = indexOfLastCard - cardPerPage;
+  const filterData = data
+    ? data.slice(indexOfFirstCard, indexOfLastCard)
+    : null;
 
   return (
     <Container>
@@ -40,6 +52,11 @@ export const Search = () => {
             );
           })}
       </MainWrapper>
+      <Pagination
+        currentPage={currentPage}
+        totalCards={totalCards}
+        cardPerPage={cardPerPage}
+      />
     </Container>
   );
 };

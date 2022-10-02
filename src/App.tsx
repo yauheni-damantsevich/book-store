@@ -10,6 +10,7 @@ import { Account } from "./layouts/Account/Account";
 import { Login } from "./layouts/login/Login";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import { Favorites } from "./layouts/Favorites/Favorites";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -21,8 +22,8 @@ function App() {
         <Route path="/book/:BookId" element={<Book />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/search/books/book/:BookId" element={<Book />} />
+        <Route path="/search/:page" element={<Search />} />
+        <Route path="/search/book/:BookId" element={<Book />} />
         <Route path="/login" element={<Login />} />
         <Route
           path="/account"
@@ -33,6 +34,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </div>
   );
 }

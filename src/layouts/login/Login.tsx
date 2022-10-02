@@ -79,7 +79,6 @@ export const Login = () => {
       })
       .catch((error) => setErrorMessage(error.message));
   };
-  console.log();
 
   const dispatch = useAppDispatch();
 

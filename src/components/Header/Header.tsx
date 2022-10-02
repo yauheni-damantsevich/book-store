@@ -21,12 +21,12 @@ import profileButtonIcon from "../../assets/User.svg";
 import useFetch from "../../hooks/useFetch";
 import { useAppDispatch } from "../../store/rootStore";
 import { searchActions } from "../../store/search.slice";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const { data, setData } = useFetch();
   const dispatch = useAppDispatch();
-  console.log(data);
-
+  const navigate = useNavigate();
   return (
     <Container>
       <MainWrapper>
@@ -46,7 +46,7 @@ export const Header = () => {
             onClick={(event) => {
               dispatch(searchActions.search(data));
             }}
-            to="/search"
+            to="/search/1"
           >
             <ButtonIcon src={searchButtonIcon} alt="Search" />
           </SearchButton>

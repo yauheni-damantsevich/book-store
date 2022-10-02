@@ -54,10 +54,8 @@ import { favoritesActions } from "../../store/favorites.slice";
 
 export const Book = () => {
   const { BookId } = useParams();
-  console.log(BookId);
 
   const state = useSelector((state: any) => state);
-  console.log(state);
 
   function getBook(state: any, id: string | undefined) {
     if (

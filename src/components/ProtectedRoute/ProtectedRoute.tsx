@@ -8,7 +8,6 @@ interface IProtectedRoute {
 
 export const ProtectedRoute = ({ children }: IProtectedRoute) => {
   const user = useSelector((state: any) => state.user.userData);
-  console.log(user);
 
   if (!user) {
     return <Navigate to="/login" />;

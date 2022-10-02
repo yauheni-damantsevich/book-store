@@ -18,7 +18,6 @@ export const MainPage = () => {
     dispatch(getCards());
   }, []);
 
-  // const [currentPage, setCurrentPage] = useState(1);
   let { page } = useParams();
   let currentPage = Number(page) > 0 ? Number(page) : 1;
   const cardPerPage = 15;
@@ -29,6 +28,7 @@ export const MainPage = () => {
   const filterData = data
     ? data.slice(indexOfFirstCard, indexOfLastCard)
     : null;
+
   return (
     <Container>
       <H1>New Releases Books</H1>
@@ -52,7 +52,6 @@ export const MainPage = () => {
       </MainWrapper>
       <Pagination
         currentPage={currentPage}
-        // setCurrentPage={setCurrentPage}
         totalCards={totalCards}
         cardPerPage={cardPerPage}
       />
