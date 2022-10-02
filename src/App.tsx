@@ -11,6 +11,7 @@ import { Login } from "./layouts/login/Login";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import { Favorites } from "./layouts/Favorites/Favorites";
 import { Footer } from "./components/Footer/Footer";
+import { ResetPassword } from "./layouts/ResetPassword/ResetPassword";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
         <Route path="/search/:page" element={<Search />} />
         <Route path="/search/book/:BookId" element={<Book />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/reset_password" element={<ResetPassword />} />
+
         <Route
           path="/account"
           element={
