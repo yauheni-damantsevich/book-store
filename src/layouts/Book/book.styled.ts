@@ -27,7 +27,9 @@ export const H1 = styled.h1`
 export const MainWrapper = styled.div`
   ${mq({ flexWrap: ["wrap", "wrap", "wrap", "nowrap"] })}
   display: flex;
-  justify-content: space-between;
+  ${mq({
+    justifyContent: ["center", "center", "space-between", "space-between"],
+  })}
   margin: 0 0 48px 0;
 `;
 
