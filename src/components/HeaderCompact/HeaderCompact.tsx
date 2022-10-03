@@ -104,6 +104,7 @@ export const HeaderCompact = () => {
                 onClick={(event) => {
                   dispatch(searchActions.search(data));
                   setOpen(false);
+                  unlockScroll();
                 }}
                 to="/search/1"
               >
