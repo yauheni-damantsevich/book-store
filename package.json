@@ -55,6 +55,7 @@
     ]
   },
   "devDependencies": {
-    "@types/facepaint": "^1.2.2"
+    "@types/facepaint": "^1.2.2",
+    "@types/redux-persist": "^4.3.1"
   }
 }

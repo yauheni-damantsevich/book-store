@@ -18,6 +18,9 @@ import "./assets/fonts/dinpro.woff2";
 import "./assets/fonts/HeliosC-Bold.woff2";
 import "./assets/fonts/HeliosC.woff2";
 
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
+
 export const firebaseConfig = {
   apiKey: "AIzaSyCFKJ5XKYWhANYWe4QaKnMEaTaKAxIdUMY",
   authDomain: "book-store-26901.firebaseapp.com",
@@ -42,15 +45,19 @@ const rrfProps = {
   createFirestoreInstance,
 };
 
+let persistor = persistStore(store);
+
 ReactDOM.render(
   <Provider store={store}>
-    <ReactReduxFirebaseProvider {...rrfProps}>
-      <BrowserRouter>
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
-      </BrowserRouter>
-    </ReactReduxFirebaseProvider>
+    <PersistGate persistor={persistor}>
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <BrowserRouter>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </BrowserRouter>
+      </ReactReduxFirebaseProvider>
+    </PersistGate>
   </Provider>,
   document.getElementById("root")
 );

@@ -10,21 +10,32 @@ import { firestoreReducer } from "redux-firestore";
 import { userReducer } from "./user.silce";
 import { favoritesReducer } from "./favorites.slice";
 
+import storage from "redux-persist/lib/storage";
+import { persistReducer } from "redux-persist";
 export const rootReducer = combineReducers({
   firebase: firebaseReducer,
   firestore: firestoreReducer,
 });
 
+const reducers = combineReducers({
+  cards: cardReducer,
+  cartCount: cartCountReducer,
+  search: searchReducer,
+  user: userReducer,
+  favorites: favoritesReducer,
+  firebase: firebaseReducer,
+  firestore: firestoreReducer,
+});
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+
 export const rootStore = configureStore({
-  reducer: {
-    cards: cardReducer,
-    cartCount: cartCountReducer,
-    search: searchReducer,
-    user: userReducer,
-    favorites: favoritesReducer,
-    firebase: firebaseReducer,
-    firestore: firestoreReducer,
-  },
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
