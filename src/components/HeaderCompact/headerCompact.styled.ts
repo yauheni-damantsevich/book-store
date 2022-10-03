@@ -136,6 +136,7 @@ export const SignIn = styled(Link)`
   justify-content: center;
   padding: 16px;
   background-color: #313037;
+  text-decoration: none;
   border: none;
 `;
 
