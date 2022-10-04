@@ -132,12 +132,14 @@ export const Logout = styled.button`
 
 export const SignIn = styled(Link)`
   max-width: 226px;
+  min-width: 156px;
   display: flex;
   justify-content: center;
   padding: 16px;
   background-color: #313037;
   text-decoration: none;
   border: none;
+  align-self: center;
 `;
 
 export const ButtonTitle = styled.p`
